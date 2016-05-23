@@ -18,7 +18,7 @@ ADD download-warmup-deps.sh /tmp/
 RUN sh /tmp/download-warmup-deps.sh
 
 # Install Ambari server
-RUN ambari-server setup -s 
+RUN ambari-server setup -s
 RUN ambari-server setup --jdbc-db=postgres --jdbc-driver=/usr/share/java/postgresql-jdbc.jar
 
 # Prepare DB for hive, oozie, ..
@@ -45,7 +45,7 @@ VOLUME /var/log
 EXPOSE 8080
 
 # Install HDP
-RUN curl -o /tmp/ambari-shell.jar https://s3-eu-west-1.amazonaws.com/maven.sequenceiq.com/releases/com/sequenceiq/ambari-shell/0.1.25/ambari-shell-0.1.25.jar
+RUN curl -o /tmp/ambari-shell.jar http://maven.sequenceiq.com/releases/com/sequenceiq/ambari-shell/0.1.31/ambari-shell-0.1.31.jar
 ADD blueprint.json /tmp/
 ADD hostmapping.json /tmp/
 ADD install-cluster.sh /tmp/
